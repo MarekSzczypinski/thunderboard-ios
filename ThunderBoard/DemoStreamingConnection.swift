@@ -61,7 +61,7 @@ class DemoStreamingConnection : DemoStreaming {
             return
         }
         
-        if firebaseToken.characters.count != 40 {
+        if firebaseToken.count != 40 {
             log.error("Firebase token invalid - streaming disabled")
             streamingEnabled = false
             return

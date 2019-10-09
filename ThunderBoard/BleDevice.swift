@@ -221,7 +221,7 @@ class BleDevice : NSObject, Device, DemoConfiguration, CBPeripheralDelegate {
     
     fileprivate func updateCapabilities(_ characteristics: [CBCharacteristic]) {
         // map characteristics to capabilities
-        capabilities = capabilities.union(characteristics.flatMap({ (characteristic: CBCharacteristic) -> DeviceCapability? in
+        capabilities = capabilities.union(characteristics.compactMap({ (characteristic: CBCharacteristic) -> DeviceCapability? in
             switch characteristic.uuid {
                 
             case CBUUID.Digital:
@@ -308,7 +308,7 @@ class BleDevice : NSObject, Device, DemoConfiguration, CBPeripheralDelegate {
         }
     }
     
-    override var hashValue: Int {
+    override var hash: Int {
         return cbPeripheral.hashValue
     }
     

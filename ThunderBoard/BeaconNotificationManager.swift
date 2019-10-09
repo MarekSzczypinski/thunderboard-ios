@@ -177,7 +177,8 @@ class BeaconNotificationManager : NSObject, NotificationManager, CLLocationManag
                 return true
             }
             return false
-        }) as! [CLBeaconRegion]
+        })
+        .map({ $0 as! CLBeaconRegion })
 
         let previous = previouslyConnectedDevices()
         return beacons.map({ beacon -> NotificationDevice in

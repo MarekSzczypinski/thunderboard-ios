@@ -24,10 +24,10 @@ class SharingActivityProvider : UIActivityItemProvider {
         }
         
         switch activityType {
-        case UIActivityType.message:
+        case UIActivity.ActivityType.message:
             return smsMessageItem() as AnyObject
             
-        case UIActivityType.mail:
+        case UIActivity.ActivityType.mail:
             return emailMessageItem() as AnyObject
             
         default:
@@ -35,7 +35,7 @@ class SharingActivityProvider : UIActivityItemProvider {
         }
     }
     
-    override func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivityType?) -> String {
+    override func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
         return "Silicon Labs Demo Device Data"
     }
     

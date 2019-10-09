@@ -24,8 +24,14 @@
 	<true/>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Thunderboard uses bluetooth.</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Thunderboard uses bluetooth.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Thunderboard uses beacons to find nearby devices</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Thunderboard uses beacons to find nearby devices</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Thunderboard uses beacons to find nearby devices</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>OpenSans-Bold.ttf</string>

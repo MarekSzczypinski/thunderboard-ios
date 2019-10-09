@@ -41,7 +41,7 @@ class PersonalInfoTableCell : UITableViewCell, UITextFieldDelegate {
 
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 18, height: 18))
         let image = UIImage(named: "icn_settings_textfield_clear")!
-        button.setImage(image, for: UIControlState())
+        button.setImage(image, for: UIControl.State())
         button.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
         
         textField?.rightViewMode = .whileEditing

@@ -7,23 +7,24 @@
 //
 
 import Foundation
+import RxCocoa
 import RxSwift
 
 class EnvironmentDemoViewModel {
     let capability: DeviceCapability
-    let name: Variable<String> = Variable("")
-    let value: Variable<String> = Variable("")
-    let imageName: Variable<String> = Variable("")
-    let imageBackgroundColor: Variable<UIColor?> = Variable(nil)
+    let name = BehaviorRelay<String>(value: "")
+    let value: BehaviorRelay<String> = BehaviorRelay<String>(value: "")
+    let imageName: BehaviorRelay<String> = BehaviorRelay<String>(value: "")
+    let imageBackgroundColor: BehaviorRelay<UIColor?> = BehaviorRelay<UIColor?>(value: nil)
     
     init(capability: DeviceCapability) {
         self.capability = capability
     }
     
     func updateData(cellData: EnvironmentCellData) {
-        self.name.value = cellData.name
-        self.value.value = cellData.value
-        self.imageName.value = cellData.imageName
-        self.imageBackgroundColor.value = cellData.imageBackgroundColor
+        self.name.accept(cellData.name)
+        self.value.accept(cellData.value)
+        self.imageName.accept(cellData.imageName)
+        self.imageBackgroundColor.accept(cellData.imageBackgroundColor)
     }
 }

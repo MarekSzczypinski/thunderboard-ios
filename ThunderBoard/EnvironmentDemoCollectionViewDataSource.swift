@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxCocoa
 import RxSwift
 
 struct EnvironmentCellData {
@@ -25,8 +26,8 @@ struct EnvironmentCellData {
 class EnvironmentDemoCollectionViewDataSource : NSObject {
     
     fileprivate typealias DataMapperFunction = ((EnvironmentData) -> EnvironmentCellData)
-    fileprivate let capabilities: Variable<Set<DeviceCapability>> = Variable(Set())
-    fileprivate let allViewModels = Variable<[EnvironmentDemoViewModel]>([])
+    fileprivate let capabilities: BehaviorRelay<Set<DeviceCapability>> = BehaviorRelay<Set<DeviceCapability>>(value: Set())
+    fileprivate let allViewModels = BehaviorRelay<[EnvironmentDemoViewModel]>(value: [])
     let activeViewModels: Observable<[EnvironmentDemoViewModel]>
     
     fileprivate static let capabilityOrder: [DeviceCapability] = [
@@ -200,14 +201,14 @@ class EnvironmentDemoCollectionViewDataSource : NSObject {
     
     override init() {
         
-        allViewModels.value = EnvironmentDemoCollectionViewDataSource.capabilityOrder.flatMap { capability in
+        allViewModels.accept(EnvironmentDemoCollectionViewDataSource.capabilityOrder.compactMap { capability in
             guard let data = EnvironmentDemoCollectionViewDataSource.dataMappers[capability]?(EnvironmentData()) else {
                 return nil
             }
             let viewModel = EnvironmentDemoViewModel(capability: capability)
             viewModel.updateData(cellData: data)
             return viewModel
-        }
+        })
         
         activeViewModels = Observable.combineLatest(allViewModels.asObservable(), capabilities.asObservable().distinctUntilChanged())
             .map { viewModels, capabilities in
@@ -220,7 +221,7 @@ class EnvironmentDemoCollectionViewDataSource : NSObject {
     // MARK: - Public (Internal)
     
     func updateData(_ data: EnvironmentData, capabilities deviceCapabilities: Set<DeviceCapability>) {
-        capabilities.value = deviceCapabilities
+        capabilities.accept(deviceCapabilities)
         
         allViewModels.value.forEach { viewModel in
             guard let cellData = EnvironmentDemoCollectionViewDataSource.dataMappers[viewModel.capability]?(data) else {

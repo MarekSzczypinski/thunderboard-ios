@@ -75,7 +75,7 @@ protocol Device : class, DemoConfiguration {
     var connectionState: DeviceConnectionState { get }
     var capabilities: Set<DeviceCapability> { get }
     
-    weak var connectedDelegate: ConnectedDeviceDelegate? { get set }
+    var connectedDelegate: ConnectedDeviceDelegate? { get set }
     
     func ledColor(_ index: Int) -> LedStaticColor
     func displayName() -> String
