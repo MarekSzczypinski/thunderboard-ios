@@ -1211,7 +1211,7 @@
 					"$(PROJECT_DIR)/External",
 				);
 				INFOPLIST_FILE = ThunderBoard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG ${inherited}";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.markacy.ThunderBoard;
@@ -1236,7 +1236,7 @@
 					"$(PROJECT_DIR)/External",
 				);
 				INFOPLIST_FILE = ThunderBoard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.markacy.ThunderBoard;
 				PRODUCT_MODULE_NAME = ThunderBoard;

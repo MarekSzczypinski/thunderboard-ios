@@ -109,7 +109,7 @@ class NotificationSettingsViewController : UIViewController, UITableViewDelegate
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.cancel, handler: nil))
         
         let settings = UIAlertAction(title: "Open Settings", style: .default) { (action: UIAlertAction) -> Void in
-            UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         }
         alert.addAction(settings)
         self.present(alert, animated: true, completion: nil)
@@ -120,7 +120,7 @@ class NotificationSettingsViewController : UIViewController, UITableViewDelegate
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.cancel, handler: nil))
         
         let settings = UIAlertAction(title: "Open Settings", style: .default) { (action: UIAlertAction) -> Void in
-            UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         }
         alert.addAction(settings)
         self.present(alert, animated: true, completion: nil)
