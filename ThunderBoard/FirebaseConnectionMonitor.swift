@@ -37,25 +37,19 @@ class FirebaseConnectionMonitor {
     }
     
     private func startObserving() {
-        let connectedRef = Firebase(url: "https://\(ApplicationConfig.FirebaseIoHost)/.info/connected")
-        connectedRef?.observe(.value, with: { snapshot in
-            self.connected = (snapshot?.value as? Bool) ?? false
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        connectedRef.observe(.value, with: { snapshot in
+            self.connected = (snapshot.value as? Bool) ?? false
             print("Firebase connection status: ", self.connected)
         })
     }
     
     private func authenticateFirebase() {
-        guard let url = URL(string: "https://\(ApplicationConfig.FirebaseIoHost)") else {
-            self.authenticationStatus = .AuthFailed
-            return
-        }
-        let firebase = Firebase(url: url.absoluteString)
-        firebase?.auth(withCustomToken: ApplicationConfig.FirebaseToken, withCompletionBlock: { (fbError: Error?, authData: FAuthData?) -> Void in
-            if fbError != nil {
-                log.error("Firebase authentication error: \(String(describing: fbError))")
+        Auth.auth().signInAnonymously(completion: { (authResult, error) in
+            if let firebaseAuthError = error {
+                log.error("Firebase authentication error: \(firebaseAuthError.localizedDescription)")
                 self.authenticationStatus = .AuthFailed
-            }
-            else {
+            } else {
                 log.info("Firebase authentication successful")
                 self.authenticationStatus = .AuthSuccess
                 self.startObserving()

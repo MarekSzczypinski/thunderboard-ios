@@ -24,7 +24,7 @@ class DemoStreamingConnection : DemoStreaming {
 
     fileprivate var device: Device
     fileprivate var streamingEnabled: Bool = false
-    fileprivate var firebase: Firebase?
+    fileprivate var firebase: DatabaseReference?
     fileprivate var firebaseConnected: Bool {
         return FirebaseConnectionMonitor.shared.isConnected
     }
@@ -47,7 +47,7 @@ class DemoStreamingConnection : DemoStreaming {
             streamingEnabled = false
             return
         }
-        
+        // MSZ -- not sure if I need (all of) those. I'll leave it here just in case
         // if Firebase configuration is valid, enable the feature
         guard let url = URL(string: "https://\(firebaseIoHost)") else {
             log.error("Firebase IO Host invalid - streaming disabled")
@@ -66,6 +66,7 @@ class DemoStreamingConnection : DemoStreaming {
             streamingEnabled = false
             return
         }
+        // MSZ --
         
         log.debug("Firebase configuration valid")
         
@@ -73,7 +74,7 @@ class DemoStreamingConnection : DemoStreaming {
         
         log.debug("Streaming enabled at init: \(streamingEnabled)")
         
-        self.firebase = Firebase(url: url.absoluteString)
+        self.firebase = Database.database().reference()
     }
     
     //MARK: - DemoStreaming Protocol
@@ -98,16 +99,13 @@ class DemoStreamingConnection : DemoStreaming {
         var error: Error? = nil
         let authentication = queue.tb_addAsyncOperationBlock("Firebase Authentication") { [weak self] (operation: AsyncOperation) -> Void in
             
-            self?.firebase?.auth(withCustomToken: self?.firebaseToken, withCompletionBlock: { (fbError: Error?, authData: FAuthData?) -> Void in
-                
-                if fbError != nil {
-                    log.error("Firebase authentication error: \(fbError)")
-                    error = fbError
-                }
-                else {
+            Auth.auth().signInAnonymously(completion: { (authResult, fbError) in
+                if let firebaseAuthError = fbError {
+                    log.error("Firebase authentication error: \(firebaseAuthError)")
+                    error = firebaseAuthError
+                } else {
                     log.info("Firebase authentication successful")
                 }
-                
                 operation.done()
             })
         }
@@ -217,7 +215,7 @@ class DemoStreamingConnection : DemoStreaming {
     
     //MARK:- Internal - Streaming Data
     
-    fileprivate var currentDemoSession: Firebase?
+    fileprivate var currentDemoSession: DatabaseReference?
     fileprivate func createNewSession(_ deviceId: DeviceId, demoType: String) -> (sessionId: String, shareUrl: String) {
 
         let sessionId = UUID().uuidString
@@ -239,59 +237,59 @@ class DemoStreamingConnection : DemoStreaming {
         }
 
         let startTime = Date.tb_currentTimestamp
-        let sessions = firebase.child(byAppendingPath: "sessions")
-        currentDemoSession = sessions?.child(byAppendingPath: sessionId.tb_sanitizeForFirebase())
+        let sessions = firebase.child("sessions")
+        currentDemoSession = sessions.child(sessionId.tb_sanitizeForFirebase())
         let session = currentDemoSession!
         
         // URL
-        session.child(byAppendingPath: "shortUrl").setValue(shortUrl)
+        session.child("shortUrl").setValue(shortUrl)
         
         // Start Time
-        session.child(byAppendingPath: "startTime").setValue(NSNumber(value: startTime as Int64))
+        session.child("startTime").setValue(NSNumber(value: startTime as Int64))
         
         // Contact Info
         let settings = ThunderboardSettings()
-        let contactInfo = session.child(byAppendingPath: "contactInfo")
+        let contactInfo = session.child("contactInfo")
 
         if let userName = settings.userName {
-            contactInfo?.child(byAppendingPath: "fullName").setValue(userName)
+            contactInfo.child("fullName").setValue(userName)
         }
         
         if let userEmail = settings.userEmail {
-            contactInfo?.child(byAppendingPath: "emailAddress").setValue(userEmail)
+            contactInfo.child("emailAddress").setValue(userEmail)
         }
         
         if let userTitle = settings.userTitle {
-            contactInfo?.child(byAppendingPath: "title").setValue(userTitle)
+            contactInfo.child("title").setValue(userTitle)
         }
         
         if let userPhone = settings.userPhone {
-            contactInfo?.child(byAppendingPath: "phoneNumber").setValue(userPhone)
+            contactInfo.child("phoneNumber").setValue(userPhone)
         }
         
         // Device ID (included in contact info)
-        contactInfo?.child(byAppendingPath: "deviceName").setValue(deviceName)
+        contactInfo.child("deviceName").setValue(deviceName)
         
         // User Preferences
-        let temperatureUnits = session.child(byAppendingPath: "temperatureUnits")
+        let temperatureUnits = session.child("temperatureUnits")
         switch settings.temperature {
         case .celsius:
-            temperatureUnits?.setValue(0)
+            temperatureUnits.setValue(0)
         case .fahrenheit:
-            temperatureUnits?.setValue(1)
+            temperatureUnits.setValue(1)
         }
         
-        let measurementUnits = session.child(byAppendingPath: "measurementUnits")
+        let measurementUnits = session.child("measurementUnits")
         switch settings.measurement {
         case .metric:
-            measurementUnits?.setValue(0)
+            measurementUnits.setValue(0)
         case .imperial:
-            measurementUnits?.setValue(1)
+            measurementUnits.setValue(1)
         }
         
         // Recent Session Info
-        let recentSessions = firebase.child(byAppendingPath: "thunderboard/\(deviceId)/sessions")
-        recentSessions?.child(byAppendingPath: String(startTime)).setValue(sessionId)
+        let recentSessions = firebase.child("thunderboard/\(deviceId)/sessions")
+        recentSessions.child(String(startTime)).setValue(sessionId)
     }
     
     fileprivate func endStreamingSession() {
@@ -327,9 +325,9 @@ class DemoStreamingConnection : DemoStreaming {
         }
 
         for sample in samples {
-            let dataPath = session.child(byAppendingPath: sample.path)
-            let samplePath = dataPath?.child(byAppendingPath: sample.timestamp)
-            samplePath?.setValue(sample.data)
+            let dataPath = session.child(sample.path)
+            let samplePath = dataPath.child(sample.timestamp)
+            samplePath.setValue(sample.data)
         }
         
         if self.firebaseConnected == false {
