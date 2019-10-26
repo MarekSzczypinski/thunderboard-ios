@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import HockeySDK
+//import HockeySDK
 import Firebase
 
 @UIApplicationMain

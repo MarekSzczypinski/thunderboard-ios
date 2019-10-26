@@ -97,7 +97,7 @@ class DemoStreamingConnection : DemoStreaming {
         }
 
         var error: Error? = nil
-        let authentication = queue.tb_addAsyncOperationBlock("Firebase Authentication") { [weak self] (operation: AsyncOperation) -> Void in
+        let authentication = queue.tb_addAsyncOperationBlock("Firebase Authentication") { (operation: AsyncOperation) -> Void in
             
             Auth.auth().signInAnonymously(completion: { (authResult, fbError) in
                 if let firebaseAuthError = fbError {
@@ -121,21 +121,15 @@ class DemoStreamingConnection : DemoStreaming {
                 if let url = shortDemoUrl {
                     log.info("Shortened demo URL: \(url)")
                     self?.demoURL = url
-                }
-                else {
-                    
-                    if let _ = shortenError {
+                } else {
+                    if let shortenError = shortenError {
                         log.error("Error shortening URL: \(shortenError)")
                         // error = shortenError
-
-                    }
-                        
-                    else {
+                    } else {
                         log.error("Missing Short URL, no error returned from API")
                         // error = ErrorFactory.shortenerUnknownError()
                     }
                 }
-                
                 operation.done()
             }
         }

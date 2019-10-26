@@ -14,6 +14,7 @@ class ApplicationConfig {
         get { return "https://www.silabs.com/thunderboard" }
     }
 
+    // MSZ - don't think it's necessary anymore
     // Firebase IO Host ("your-application-0001.firebaseio.com")
     class var FirebaseIoHost: String {
         get { return "thundercloud-40c56.firebaseio.com" }
