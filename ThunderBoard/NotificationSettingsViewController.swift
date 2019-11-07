@@ -140,7 +140,7 @@ class NotificationSettingsViewController : UIViewController, UITableViewDelegate
     //MARK: - Private
     
     fileprivate func setupAppearance() {
-        self.automaticallyAdjustsScrollViewInsets = false
+        self.tableView?.contentInsetAdjustmentBehavior = .never
         self.view.backgroundColor = StyleColor.lightGray
         
         self.tableView?.backgroundColor = StyleColor.lightGray

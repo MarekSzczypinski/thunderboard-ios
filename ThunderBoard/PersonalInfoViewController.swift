@@ -72,7 +72,7 @@ class PersonalInfoViewController: UITableViewController {
     }
     
     func setupAppearance() {
-        automaticallyAdjustsScrollViewInsets = true
+        tableView.contentInsetAdjustmentBehavior = .automatic
         view.backgroundColor = StyleColor.lightGray
         tableView?.backgroundColor = StyleColor.lightGray
         

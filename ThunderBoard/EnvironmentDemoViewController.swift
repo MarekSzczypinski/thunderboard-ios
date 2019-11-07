@@ -21,6 +21,7 @@ class EnvironmentDemoViewController: DemoViewController, EnvironmentDemoInteract
         super.viewDidLoad()
         self.title = "Environment"
         
+        collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
         collectionView.backgroundColor = UIColor.clear
         collectionView.delegate = self
