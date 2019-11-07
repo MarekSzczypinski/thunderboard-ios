@@ -31,7 +31,7 @@ class ApplicationConfig {
     }
     
     // Hockey Token - (32 character string provided by Hockey for crash reporting)
-    class var HockeyToken: String? {
-        get { return nil }
-    }
+//    class var HockeyToken: String? {
+//        get { return nil }
+//    }
 }

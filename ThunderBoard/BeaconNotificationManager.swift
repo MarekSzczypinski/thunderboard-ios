@@ -35,12 +35,10 @@ class BeaconNotificationManager : NSObject, NotificationManager, CLLocationManag
             clManager = CLLocationManager()
             clManager?.delegate = self
             clManager?.desiredAccuracy = kCLLocationAccuracyBest
+            clManager?.allowsBackgroundLocationUpdates = true
             
             requestLocationServicesAccess()
-        }
-            
-        else {
-            
+        } else {
             // stop monitoring regions
             if let regions = clManager?.monitoredRegions {
                 for region in regions {
@@ -53,7 +51,6 @@ class BeaconNotificationManager : NSObject, NotificationManager, CLLocationManag
             
             notificationsDisabled()
         }
-
         dumpDebugInformation()
     }
     

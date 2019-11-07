@@ -83,8 +83,17 @@ class NotificationSettingsInteraction : NotificationManagerDelegate {
         notifyUpdates()
         
         if enabled {
-            let settings = UIUserNotificationSettings(types: .alert, categories: nil)
-            UIApplication.shared.registerUserNotificationSettings(settings)
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] (didAllow, error) in
+                if let requestAuthorizationError = error {
+                    print("Error when requesting authorization: \(requestAuthorizationError.localizedDescription)")
+                    return
+                }
+                if didAllow {
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: UserNotificationSettingsUpdatedEvent), object: nil)
+                } else {
+                    self?.notificationsNotAllowed()
+                }
+            }
         }
     }
     
@@ -101,9 +110,10 @@ class NotificationSettingsInteraction : NotificationManagerDelegate {
     //MARK: - Private
     
     fileprivate func notificationSettingsUpdated() {
-        let settings = UIApplication.shared.currentUserNotificationSettings
-        if settings?.types.contains(.alert) == false {
-            notificationsNotAllowed()
+        UNUserNotificationCenter.current().getNotificationSettings { [weak self] (notificationSettings) in
+            if notificationSettings.authorizationStatus != .authorized {
+                self?.notificationsNotAllowed()
+            }
         }
     }
     

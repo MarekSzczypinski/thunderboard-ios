@@ -147,17 +147,17 @@ class ApplicationPresenter : NSObject, DeviceTransportApplicationDelegate, Conne
     //MARK: - NotificationPresenter
     
     func showDetectedDevice(_ device: NotificationDevice) {
-            
-        let note = UILocalNotification()
         
-        note.alertBody = "\(device.name) is ready. Would you like to connect to this Bluetooth device and start a demo?"
-        note.alertAction = "Connect"
-        note.userInfo = [
+        let content = UNMutableNotificationContent()
+        content.title = "\(device.name) is ready."
+        content.body = "\(device.name) is ready. Would you like to connect to this Bluetooth device and start a demo?"
+        content.userInfo = [
             "deviceName" : device.name,
             "deviceIdentifier" : device.identifier.toString()
         ]
-        
-        UIApplication.shared.presentLocalNotificationNow(note)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+        let request = UNNotificationRequest(identifier: "\(device.name)", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
     //MARK: - DemoStreamSharePresenter
