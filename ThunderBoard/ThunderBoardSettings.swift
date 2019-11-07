@@ -131,7 +131,7 @@ class ThunderboardSettings: NSObject {
                 return []
             }
             
-            guard let devices = NSKeyedUnarchiver.unarchiveObject(with: data) as? [NotificationDevice] else {
+            guard let devices = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [NotificationDevice] else {
                 return []
             }
 
@@ -139,7 +139,7 @@ class ThunderboardSettings: NSObject {
         }
         
         set (newList) {
-            let data = NSKeyedArchiver.archivedData(withRootObject: newList)
+            let data = try? NSKeyedArchiver.archivedData(withRootObject: newList, requiringSecureCoding: false)
             defaults.set(data, forKey: connectedDevicesHistoryKey)
         }
     }

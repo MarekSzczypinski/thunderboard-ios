@@ -269,7 +269,7 @@ class BleManager: NSObject, CBCentralManagerDelegate, DeviceScanner, DeviceConne
     
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        log.error("failed connection to peripheral \(peripheral) error \(error)")
+        log.error("failed connection to peripheral \(peripheral) error \(String(describing: error))")
         
         let device = bleDeviceForPeripheral(peripheral)
         device.connectionState = .disconnected
@@ -284,7 +284,7 @@ class BleManager: NSObject, CBCentralManagerDelegate, DeviceScanner, DeviceConne
     
 
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        log.info("disconnected from peripheral \(peripheral) error=\(error)")
+        log.info("disconnected from peripheral \(peripheral) error=\(String(describing: error))")
         
         let device = bleDeviceForPeripheral(peripheral)
         device.connectionState = .disconnected

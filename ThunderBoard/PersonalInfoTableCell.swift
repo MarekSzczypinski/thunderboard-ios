@@ -20,7 +20,7 @@ class PersonalInfoTableCell : UITableViewCell, UITextFieldDelegate {
         textField?.tintColor = StyleColor.terbiumGreen
         textField?.delegate = self
         
-        log.debug("\(textField?.subviews)")
+        log.debug("\(String(describing: textField?.subviews))")
     }
     
     override func draw(_ rect: CGRect) {

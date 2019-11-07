@@ -10,7 +10,7 @@ import RxSwift
 
 class EnvironmentDemoCollectionViewCell: UICollectionViewCell {
 
-    static let cellIdentifier = "\(self).cellID"
+    static let cellIdentifier = "\(String(describing: self)).cellID"
     
     // MARK: - Properties
 

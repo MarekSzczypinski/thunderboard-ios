@@ -64,7 +64,7 @@ enum PowerSource : Equatable {
     case coinCell(Int)
 }
 
-protocol Device : class, DemoConfiguration {
+protocol Device : DemoConfiguration {
     var model: DeviceModel { get }
     var name: String? { get }
     var advertisementDataLocalName: String? { get }

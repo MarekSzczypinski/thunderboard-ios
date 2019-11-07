@@ -220,7 +220,7 @@ class BeaconNotificationManager : NSObject, NotificationManager, CLLocationManag
     
     fileprivate func dumpDebugInformation() {
         let regions = clManager?.monitoredRegions
-        log.debug("monitored regions: \(regions)")
+        log.debug("monitored regions: \(String(describing: regions))")
     }
     
     //MARK: - CLLocationManagerDelegate
@@ -246,7 +246,7 @@ class BeaconNotificationManager : NSObject, NotificationManager, CLLocationManag
     }
     
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
-        log.error("\(region) error \(error)")
+        log.error("\(String(describing: region)) error \(error)")
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
