@@ -29,9 +29,7 @@ class DemoStreamingConnection : DemoStreaming {
         return FirebaseConnectionMonitor.shared.isConnected
     }
     
-    fileprivate let firebaseIoHost   = ApplicationConfig.FirebaseIoHost
     fileprivate let firebaseDemoHost = ApplicationConfig.FirebaseDemoHost
-    fileprivate let firebaseToken    = ApplicationConfig.FirebaseToken
     fileprivate let shareUrlTemplate = "https://__FIREBASEDEMOHOST__/#/__DEVICEID_/__SESSIONID__/__DEMOTYPE__"
 
     init(device: Device, output: DemoStreamingOutput?) {
@@ -47,26 +45,12 @@ class DemoStreamingConnection : DemoStreaming {
             streamingEnabled = false
             return
         }
-        // MSZ -- not sure if I need (all of) those. I'll leave it here just in case
-        // if Firebase configuration is valid, enable the feature
-        guard let url = URL(string: "https://\(firebaseIoHost)") else {
-            log.error("Firebase IO Host invalid - streaming disabled")
-            streamingEnabled = false
-            return
-        }
         
         guard let _ = URL(string: "https://\(firebaseDemoHost)") else {
             log.error("Firebase demo host invalid - streaming disabled")
             streamingEnabled = false
             return
         }
-        
-        if firebaseToken.count != 40 {
-            log.error("Firebase token invalid - streaming disabled")
-            streamingEnabled = false
-            return
-        }
-        // MSZ --
         
         log.debug("Firebase configuration valid")
         

@@ -6,7 +6,9 @@
 //
 
 import UIKit
-//import HockeySDK
+//import AppCenter
+//import AppCenterAnalytics
+//import AppCenterCrashes
 import Firebase
 
 @UIApplicationMain
@@ -23,9 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
         
-//        if let hockeyToken = ApplicationConfig.HockeyToken {
-//            BITHockeyManager.shared().configure(withIdentifier: hockeyToken)
-//            BITHockeyManager.shared().start()
+//        if let appCenterToken = ApplicationConfig.AppCenterToken {
+//            MSAppCenter.start(appCenterToken, withServices:[
+//                MSAnalytics.self,
+//                MSCrashes.self
+//            ])
 //        }
 
         let background = application.applicationState
