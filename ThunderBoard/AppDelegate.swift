@@ -6,6 +6,7 @@
 //
 
 import UIKit
+// Uncomment next 3 lines to use AppCenter
 //import AppCenter
 //import AppCenterAnalytics
 //import AppCenterCrashes
@@ -24,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
-        
+
+// Uncomment this if statement and it's content to use App Center        
 //        if let appCenterToken = ApplicationConfig.AppCenterToken {
 //            MSAppCenter.start(appCenterToken, withServices:[
 //                MSAnalytics.self,

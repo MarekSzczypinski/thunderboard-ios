@@ -60,7 +60,40 @@ ThunderBoard attempts to shorten all demo URLs with the [is.gd](http://is.gd) UR
 
 # Analytics / Crash reporting setup
 
-TBD
+You now have to make a decision on which tool to use for analytics and/or crash reporting. Original version of the Thunderboard application uses HockeyApp, so one might think it's ok to stick with this tool, and just upgrade... But...
+
+ HockeyApp was bought by Microsoft and now is replaced/succeeded by App Center. App Center itself is becoming more and more similar in functionality to the Firebase i.e: both do have analytics and crash reporting tools. Now you have to answer the question which one to use? Should you stick with HockeyApp/App Center for crash reporting? Or should you switch to using Firebase, since the application is already using bunch of it's functionality?
+ I have prepared this 'DecisionPoint' branch with exactly this problem in mind. It contains `Podfile` that will allow you to use either of the tools. What follows is short description of what one should do to use one of the tools.
+
+ ## App Center (ex. Hockey App)
+
+ 1. Sign up for an account at [AppCenter webpage](https://appcenter.ms). If you have a Microsoft account already, you can use that one.
+ 1. Create your first application, and...
+ 1. Follow the 'Overview/Getting Started' guide. Don't worry, it won't disappear, so you can return to it at any time.
+ 1. Remember the character string in step #2 of getting started. It's given in the code (of course it's some random character string not the "you need to copy this string" ;-) ):
+ ```
+ MSAppCenter.start("<you need to copy this string>", withServices:[
+  MSAnalytics.self,
+  MSCrashes.self
+])
+```
+ 
+ **NOTE:** The project is partially prepared for this change: 
+ 
+ - In file `Podfile` just uncomment line `#pod 'AppCenter'` (around line number 10)
+ - In file `ApplicationConfig.swift` uncomment the part below and change `get { return nil }` to `get { return "<you need to copy this string>" }`:
+```
+//    AppCenter Token - (Character string provided by App Center for crash reporting)
+//    class var AppCenterToken: String? {
+//        get { return nil }
+//    }
+```
+- In file `AppDelegate.swift` uncomment the 3 include lines (lines number 11, 12 and 13) and lines 30-35
+
+## Firebase Analytics/Crashlytics
+
+1. Follow this [tutorial](https://firebase.google.com/docs/crashlytics/get-started?platform=ios)
+2. Uncomment lines 14, 15 and 17 in `Podfile` file.
 
 # Building the code
 
