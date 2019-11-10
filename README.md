@@ -1,6 +1,6 @@
 # ThunderBoard
 
-ThunderBoard is an app for demonstrating the capabilities of the ThunderBoard-React sensor board. It includes Motion, Environment, and I/O demos. ThunderBoard is a native iOS app written in Swift 2.0.
+ThunderBoard is an app for demonstrating the capabilities of the ThunderBoard-React sensor board. It includes Motion, Environment, and I/O demos. ThunderBoard is a native iOS app written in Swift 5.1.
 
 Source code for the [Android app](https://github.com/SiliconLabs/thunderboard-react-android) and [Firebase web interface](https://github.com/SiliconLabs/thundercloud) is also available.
 
@@ -38,7 +38,17 @@ Each ThunderBoard demo can stream realtime data to the cloud. While streaming, t
 
 ![Motion Demo Streaming](Resources/ss_motion_streaming_sm.png)
 
-The cloud streaming feature is built with [Firebase](https://www.firebase.com). In order to enable support, you need to update the configuration values in `ApplicationConfig.swift`. Specifically, the `FirebaseIoHost`, `FirebaseDemoHost`, and `FirebaseToken` items need to be updated. Without these values, the streaming feature will be disabled.
+The cloud streaming feature is built with [Firebase](https://www.firebase.com). 
+
+### Configuration
+
+In order to enable support, you need to follow this [Tutorial](https://firebase.google.com/docs/ios/setup), and update the configuration values in `ApplicationConfig.swift`. Specifically, the `FirebaseDemoHost` item needs to be updated. Without this value, the streaming feature will be disabled. Once you downloaded `GoogleService-Info.plist` and added it to your project remember, that there are some sensitive data, so adding this file to your repository and publishing it is not recommended.
+
+#### Note
+
+Original application authenticates with Firebase using custom token in such a way, that every instance of the application talks to Firebase backend as one and the same user. I am not sure if this still works. In [tutorial](https://firebase.google.com/docs/auth/ios/custom-auth), it's stated that in order to use custom token authentication one have to generate some key on your backend. Didn't find any code in the Thundercloud backend that would do this.
+Anyways, for now I allow for anonymous users. *But in order for this to work you have to allow anonymous users in your Firebase console before you start pushing sensor data into the cloud.*
+Maybe later I will try to figure out how to use authentication with custom token.
 
 ### Cloud Data
 
@@ -48,33 +58,30 @@ The format for data sent to Firebase is documented inside the web application [R
 
 ThunderBoard attempts to shorten all demo URLs with the [is.gd](http://is.gd) URL shortening service. URL stats are not supported, so no credentials are required for the URL shortener. Additional URL shorteners may be easily supported by providing a class conforming to the `UrlShortener` protocol.
 
+# Analytics / Crash reporting setup
+
+TBD
 
 # Building the code
 
-_The ThunderBoard project is written in Swift 2, and thus requires Xcode 7.0 or newer._
+_The ThunderBoard project is written in Swift 5.1, and thus requires Xcode 11.1 or newer._
 
-1. Download Xcode from the Mac App Store or from the [developer tools site](https://developer.apple.com/xcode/downloads/).
-2. Open `ThunderBoard.xcodeproj` in Xcode
-3. Build the `Thunderboard` scheme
+1. Download Xcode from the Mac App Store or from the [developer tools site](https://developer.apple.com/xcode/downloads/) (if you haven't done that already).
+1. Install CocoaPods (`sudo gem install cocoapods`)
+1. Clone this project (`git clone https://github.com/MarekSzczypinski/thunderboard-ios.git`)
+1. `cd thunderboard-ios`
+1. `pod install`
+1. Open `ThunderBoard.xcworkspace` in Xcode
+1. Build the `Thunderboard` scheme (usually Command+B is enough).
+1. Run the application (Command+R)
 
 
 ## Configuration Values
 
 Inside the Xcode project, the `ApplicationConfig.swift` file contains configuration values that need to be provided in order for certain features of the application to be enabled (namely, realtime streaming and Hockey crash reporting). In order to stream realtime data to your own Firebase instance, you'll need to update the following items with your own configuration value:
 
-	// Firebase IO Host ("your-application-0001.firebaseio.com")
-    class var FirebaseIoHost: String {
-        get { return "" }
-    }
-    
     // Firebase web app host ("your-application-0001.firebaseapp.com")
     class var FirebaseDemoHost: String {
         get { return "" }
     }
-
-    // Firebase token (40 character string from your Firebase account)
-    class var FirebaseToken: String {
-        get { return "" }
-    }
-    
 

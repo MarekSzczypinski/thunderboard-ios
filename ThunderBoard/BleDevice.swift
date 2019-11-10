@@ -11,7 +11,7 @@ import CoreBluetooth
 class BleDevice : NSObject, Device, DemoConfiguration, CBPeripheralDelegate {
     
     override var debugDescription: String {
-        get { return "name=\(name) identifier=\(deviceIdentifier) RSSI=\(RSSI) connectionState=\(connectionState)" }
+        get { return "name=\(name ?? "") identifier=\(deviceIdentifier ?? UInt64(0)) RSSI=\(RSSI ?? 0) connectionState=\(connectionState)" }
     }
     
     fileprivate (set) var model: DeviceModel = .unknown
@@ -221,7 +221,7 @@ class BleDevice : NSObject, Device, DemoConfiguration, CBPeripheralDelegate {
     
     fileprivate func updateCapabilities(_ characteristics: [CBCharacteristic]) {
         // map characteristics to capabilities
-        capabilities = capabilities.union(characteristics.flatMap({ (characteristic: CBCharacteristic) -> DeviceCapability? in
+        capabilities = capabilities.union(characteristics.compactMap({ (characteristic: CBCharacteristic) -> DeviceCapability? in
             switch characteristic.uuid {
                 
             case CBUUID.Digital:
@@ -308,7 +308,7 @@ class BleDevice : NSObject, Device, DemoConfiguration, CBPeripheralDelegate {
         }
     }
     
-    override var hashValue: Int {
+    override var hash: Int {
         return cbPeripheral.hashValue
     }
     
@@ -355,7 +355,7 @@ class BleDevice : NSObject, Device, DemoConfiguration, CBPeripheralDelegate {
             return
         }
         
-        log.debug("service: \(service.uuid) characteristics: \(service.characteristics)")
+        log.debug("service: \(service.uuid) characteristics: \(characteristics)")
         
         // update capabilities based on characteristics
         updateCapabilities(characteristics)

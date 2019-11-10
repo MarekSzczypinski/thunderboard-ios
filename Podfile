@@ -6,7 +6,15 @@ target 'Thunderboard' do
   use_frameworks!
 
   # Pods for Thunderboard
-  pod "HockeySDK"
-  pod 'RxSwift',    '~> 3.0'
-  pod 'RxCocoa',    '~> 3.0'
+  # Uncomment the next line if you want to use AppCenter (ex HockeyApp) for Analytics and Crash logging
+  #pod 'AppCenter'
+  pod 'RxSwift',    '~> 5'
+  pod 'RxCocoa',    '~> 5'
+  # Pods for Crashlytics
+  #pod 'Fabric', '~> 1.10.2' # Comment this line if you want to use AppCenter
+  #pod 'Crashlytics', '~> 3.14.0' # Comment this line if you want to use AppCenter
+  # (Recommended) Pod for Google Analytics
+  #pod 'Firebase/Analytics' # Comment this line if you want to use AppCenter
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 end

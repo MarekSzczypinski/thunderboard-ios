@@ -35,12 +35,10 @@ class BeaconNotificationManager : NSObject, NotificationManager, CLLocationManag
             clManager = CLLocationManager()
             clManager?.delegate = self
             clManager?.desiredAccuracy = kCLLocationAccuracyBest
+            clManager?.allowsBackgroundLocationUpdates = true
             
             requestLocationServicesAccess()
-        }
-            
-        else {
-            
+        } else {
             // stop monitoring regions
             if let regions = clManager?.monitoredRegions {
                 for region in regions {
@@ -53,7 +51,6 @@ class BeaconNotificationManager : NSObject, NotificationManager, CLLocationManag
             
             notificationsDisabled()
         }
-
         dumpDebugInformation()
     }
     
@@ -177,7 +174,8 @@ class BeaconNotificationManager : NSObject, NotificationManager, CLLocationManag
                 return true
             }
             return false
-        }) as! [CLBeaconRegion]
+        })
+        .map({ $0 as! CLBeaconRegion })
 
         let previous = previouslyConnectedDevices()
         return beacons.map({ beacon -> NotificationDevice in
@@ -222,7 +220,7 @@ class BeaconNotificationManager : NSObject, NotificationManager, CLLocationManag
     
     fileprivate func dumpDebugInformation() {
         let regions = clManager?.monitoredRegions
-        log.debug("monitored regions: \(regions)")
+        log.debug("monitored regions: \(regions ?? Set())")
     }
     
     //MARK: - CLLocationManagerDelegate
@@ -248,7 +246,7 @@ class BeaconNotificationManager : NSObject, NotificationManager, CLLocationManag
     }
     
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
-        log.error("\(region) error \(error)")
+        log.error("\(String(describing: region)) error \(error)")
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {

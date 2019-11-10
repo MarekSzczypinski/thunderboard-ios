@@ -18,6 +18,7 @@
 		13C1AE251BD0372A0063B11D /* StyledLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1AE241BD0372A0063B11D /* StyledLabel.swift */; };
 		13DB49091BF2749700CFB713 /* MotionDemoCalibrateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB49081BF2749700CFB713 /* MotionDemoCalibrateButton.swift */; };
 		27E328CB1BC7F34900159CEE /* ConnectedDeviceBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E328CA1BC7F34900159CEE /* ConnectedDeviceBarView.swift */; };
+		4FF29618235513E400995679 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FF29617235513E400995679 /* GoogleService-Info.plist */; };
 		55DEBE2C1BD951DE00559656 /* ButtonSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DEBE2B1BD951DE00559656 /* ButtonSpinner.swift */; };
 		661E5E691C816A46003BFEB7 /* DemoStreamSharePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661E5E681C816A46003BFEB7 /* DemoStreamSharePresenter.swift */; };
 		6630EB611C7E5F5F00599C78 /* DemoSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6630EB5F1C7E5F5E00599C78 /* DemoSelection.storyboard */; };
@@ -68,7 +69,6 @@
 		DF1335431BF6434400611E45 /* ApplicationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1335421BF6434400611E45 /* ApplicationConfig.swift */; };
 		DF134F9E1CFE3B5100FAA938 /* HueGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF134F9D1CFE3B5100FAA938 /* HueGradientView.swift */; };
 		DF15A42B1BC550AA0023C31C /* CBUUIDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15A42A1BC550AA0023C31C /* CBUUIDExtensions.swift */; };
-		DF2285821BBDCC7E0021EFFF /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2285811BBDCC7E0021EFFF /* Firebase.framework */; };
 		DF2285861BBDCD9B0021EFFF /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2285851BBDCD9B0021EFFF /* libc++.tbd */; };
 		DF2285881BBDCDA80021EFFF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2285871BBDCDA80021EFFF /* SystemConfiguration.framework */; };
 		DF22858A1BBDCDB60021EFFF /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2285891BBDCDB60021EFFF /* libicucore.tbd */; };
@@ -175,6 +175,7 @@
 		27E328CA1BC7F34900159CEE /* ConnectedDeviceBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ConnectedDeviceBarView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		293A1161C903B36E17E84D2A /* Pods_Thunderboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thunderboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48098E4AB74057C823EA40F2 /* Pods-Thunderboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thunderboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thunderboard/Pods-Thunderboard.release.xcconfig"; sourceTree = "<group>"; };
+		4FF29617235513E400995679 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		55DEBE2B1BD951DE00559656 /* ButtonSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonSpinner.swift; sourceTree = "<group>"; };
 		661E5E681C816A46003BFEB7 /* DemoStreamSharePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoStreamSharePresenter.swift; sourceTree = "<group>"; };
 		6630EB601C7E5F5F00599C78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DemoSelection.storyboard; sourceTree = "<group>"; };
@@ -227,7 +228,6 @@
 		DF1335421BF6434400611E45 /* ApplicationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationConfig.swift; sourceTree = "<group>"; };
 		DF134F9D1CFE3B5100FAA938 /* HueGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HueGradientView.swift; sourceTree = "<group>"; };
 		DF15A42A1BC550AA0023C31C /* CBUUIDExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CBUUIDExtensions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		DF2285811BBDCC7E0021EFFF /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = External/Firebase.framework; sourceTree = SOURCE_ROOT; };
 		DF2285851BBDCD9B0021EFFF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		DF2285871BBDCDA80021EFFF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DF2285891BBDCDB60021EFFF /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
@@ -322,7 +322,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF2285821BBDCC7E0021EFFF /* Firebase.framework in Frameworks */,
 				DF2285881BBDCDA80021EFFF /* SystemConfiguration.framework in Frameworks */,
 				DF22858A1BBDCDB60021EFFF /* libicucore.tbd in Frameworks */,
 				DF2285861BBDCD9B0021EFFF /* libc++.tbd in Frameworks */,
@@ -429,7 +428,6 @@
 				DF2285891BBDCDB60021EFFF /* libicucore.tbd */,
 				DF2285871BBDCDA80021EFFF /* SystemConfiguration.framework */,
 				DF2285851BBDCD9B0021EFFF /* libc++.tbd */,
-				DF2285811BBDCC7E0021EFFF /* Firebase.framework */,
 				293A1161C903B36E17E84D2A /* Pods_Thunderboard.framework */,
 			);
 			name = Frameworks;
@@ -512,6 +510,7 @@
 				66CC656E1CE395E300840D99 /* Fonts */,
 				DF6ADFB81BBA4A1800B740D8 /* LaunchScreen.storyboard */,
 				DF6ADFBB1BBA4A1800B740D8 /* Info.plist */,
+				4FF29617235513E400995679 /* GoogleService-Info.plist */,
 			);
 			path = ThunderBoard;
 			sourceTree = "<group>";
@@ -733,7 +732,6 @@
 				DF6ADFA91BBA4A1800B740D8 /* Frameworks */,
 				DF6ADFAA1BBA4A1800B740D8 /* Resources */,
 				9FD253FEC41840DF39C45F4D /* [CP] Embed Pods Frameworks */,
-				D80019A1F17362C0A75DDE4B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -751,18 +749,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Silicon Labs";
 				TargetAttributes = {
 					DCA103FB1E6F5C5E00AFFEB1 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 8XJ3XUB2KD;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DF6ADFAB1BBA4A1800B740D8;
 					};
 					DF6ADFAB1BBA4A1800B740D8 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = THP5EV5EJ9;
-						LastSwiftMigration = 0820;
+						DevelopmentTeam = 8XJ3XUB2KD;
+						LastSwiftMigration = 1100;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -773,7 +773,7 @@
 			};
 			buildConfigurationList = DF6ADFA71BBA4A1800B740D8 /* Build configuration list for PBXProject "Thunderboard" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -806,6 +806,7 @@
 				DF4723F21BDA924F0045C718 /* StreamingViewController.xib in Resources */,
 				6630EB611C7E5F5F00599C78 /* DemoSelection.storyboard in Resources */,
 				AA0724F31F34DA2B001446CA /* TBSense_Rev_Lowpoly_2.mtl in Resources */,
+				4FF29618235513E400995679 /* GoogleService-Info.plist in Resources */,
 				66C10F481D1428A0002F1BF7 /* MotionSenseBoardDemoViewController.storyboard in Resources */,
 				66E3F2901CAAF16A004B89CA /* MotionBoardDemoViewController.storyboard in Resources */,
 				66C10F2D1D142628002F1BF7 /* Thunderboard_React_031716.fbx in Resources */,
@@ -842,13 +843,28 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Thunderboard/Pods-Thunderboard-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Thunderboard/Pods-Thunderboard-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Thunderboard/Pods-Thunderboard-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C3314D996396EFFB4D159C03 /* [CP] Check Pods Manifest.lock */ = {
@@ -857,28 +873,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Thunderboard-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D80019A1F17362C0A75DDE4B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Thunderboard/Pods-Thunderboard-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1044,13 +1048,15 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEVELOPMENT_TEAM = 8XJ3XUB2KD;
 				INFOPLIST_FILE = ThunderboardTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.silabs.ThunderBoard.ThunderboardTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Thunderboard.app/Thunderboard";
 			};
 			name = Debug;
@@ -1063,13 +1069,15 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEVELOPMENT_TEAM = 8XJ3XUB2KD;
 				INFOPLIST_FILE = ThunderboardTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.silabs.ThunderBoard.ThunderboardTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Thunderboard.app/Thunderboard";
 			};
 			name = Release;
@@ -1078,17 +1086,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1110,7 +1129,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1122,17 +1141,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1148,9 +1178,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1162,20 +1193,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = THP5EV5EJ9;
+				DEVELOPMENT_TEAM = 8XJ3XUB2KD;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/External",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ThunderBoard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.silabs.ThunderBoard;
+				OTHER_SWIFT_FLAGS = "-DDEBUG ${inherited}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.markacy.ThunderBoard;
 				PRODUCT_MODULE_NAME = ThunderBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1186,19 +1215,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = THP5EV5EJ9;
+				DEVELOPMENT_TEAM = 8XJ3XUB2KD;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/External",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ThunderBoard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.silabs.ThunderBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.markacy.ThunderBoard;
 				PRODUCT_MODULE_NAME = ThunderBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

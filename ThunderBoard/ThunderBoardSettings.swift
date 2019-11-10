@@ -131,7 +131,7 @@ class ThunderboardSettings: NSObject {
                 return []
             }
             
-            guard let devices = NSKeyedUnarchiver.unarchiveObject(with: data) as? [NotificationDevice] else {
+            guard let devices = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [NotificationDevice] else {
                 return []
             }
 
@@ -139,7 +139,7 @@ class ThunderboardSettings: NSObject {
         }
         
         set (newList) {
-            let data = NSKeyedArchiver.archivedData(withRootObject: newList)
+            let data = try? NSKeyedArchiver.archivedData(withRootObject: newList, requiringSecureCoding: false)
             defaults.set(data, forKey: connectedDevicesHistoryKey)
         }
     }
@@ -154,7 +154,7 @@ class ThunderboardSettings: NSObject {
     
     func removeConnectedDevice(_ device: NotificationDevice) {
         var devices = connectedDevices
-        if let index = devices.index(of: device) {
+        if let index = devices.firstIndex(of: device) {
             devices.remove(at: index)
             connectedDevices = devices
         }
@@ -182,7 +182,7 @@ class ThunderboardSettings: NSObject {
     }
     
     fileprivate func identityOrNilForEmpty(_ value: String?) -> String? {
-        if value?.characters.count > 1 {
+        if value?.count > 1 {
             return value
         }
         

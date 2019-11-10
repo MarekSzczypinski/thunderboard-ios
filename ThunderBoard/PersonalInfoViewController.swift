@@ -72,7 +72,7 @@ class PersonalInfoViewController: UITableViewController {
     }
     
     func setupAppearance() {
-        automaticallyAdjustsScrollViewInsets = true
+        tableView.contentInsetAdjustmentBehavior = .automatic
         view.backgroundColor = StyleColor.lightGray
         tableView?.backgroundColor = StyleColor.lightGray
         
@@ -94,16 +94,16 @@ class PersonalInfoViewController: UITableViewController {
     }
     
     func setupNavButtons() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_navbar_close"), style: UIBarButtonItemStyle.done, target: self, action: #selector(handleCancel))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_navbar_done_active"), style: UIBarButtonItemStyle.done, target: self, action: #selector(handleSave))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_navbar_close"), style: UIBarButtonItem.Style.done, target: self, action: #selector(handleCancel))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_navbar_done_active"), style: UIBarButtonItem.Style.done, target: self, action: #selector(handleSave))
     }
     
     //MARK: Action Handlers
-    func handleCancel() {
+    @objc func handleCancel() {
         let _ = self.navigationController?.popViewController(animated: true)
     }
     
-    func handleSave() {
+    @objc func handleSave() {
         settings.userName      = self.nameTextField.text
         settings.userTitle     = self.titleTextField.text
         settings.userPhone     = self.phoneTextField.text

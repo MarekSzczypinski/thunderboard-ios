@@ -21,12 +21,13 @@ class EnvironmentDemoViewController: DemoViewController, EnvironmentDemoInteract
         super.viewDidLoad()
         self.title = "Environment"
         
+        collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
         collectionView.backgroundColor = UIColor.clear
         collectionView.delegate = self
         collectionView.register(EnvironmentDemoCollectionViewCell.self, forCellWithReuseIdentifier: EnvironmentDemoCollectionViewCell.cellIdentifier)
         
-        dataSource.activeViewModels.debounce(0.5, scheduler: MainScheduler.instance).bind(to: collectionView.rx.items(cellIdentifier: EnvironmentDemoCollectionViewCell.cellIdentifier, cellType: EnvironmentDemoCollectionViewCell.self)){(_, element, cell) in
+        dataSource.activeViewModels.debounce(.milliseconds(500), scheduler: MainScheduler.instance).bind(to: collectionView.rx.items(cellIdentifier: EnvironmentDemoCollectionViewCell.cellIdentifier, cellType: EnvironmentDemoCollectionViewCell.self)){(_, element, cell) in
             cell.configureCell(with: element)
         }.disposed(by: disposeBag)
         

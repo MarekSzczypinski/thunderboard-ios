@@ -38,7 +38,6 @@ class DemoViewController : UIViewController, DemoStreamingInteractionOutput, Str
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = StyleColor.lightGray
-        self.automaticallyAdjustsScrollViewInsets = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +55,7 @@ class DemoViewController : UIViewController, DemoStreamingInteractionOutput, Str
                                                   object: nil)
     }
 
-    func firebaseStatusDidChange() {
+    @objc func firebaseStatusDidChange() {
         switch FirebaseConnectionMonitor.shared.isConnected {
         case true:
             streamingEnabled = true
