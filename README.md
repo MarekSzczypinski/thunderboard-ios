@@ -60,7 +60,11 @@ ThunderBoard attempts to shorten all demo URLs with the [is.gd](http://is.gd) UR
 
 # Analytics / Crash reporting setup
 
-TBD
+The [original application](https://github.com/SiliconLabs/thunderboard-ios) is using HockeyApp for crash reporting and analytics. Since the time the application has been published, HockeyApp was bought by &#xA9; Microsoft and included into their [App Center](https://appcenter.ms) project, which in turn is a product that is competitive to Firebase. Because the Thunderboard app is already extensively using Firebase as it's backend I decided to use Occam's razor principle and go with Firebase's Crashlytics and Analytics instead of HockeyApp/App Center.
+
+If you would like to try App Center or any other tool for crash reporting and analytics, you can go to [DecisionPoint branch](https://github.com/MarekSzczypinski/thunderboard-ios/tree/DecisionPoint) within this repository. It is stripped of any App Center/Firebase Crashlytics - Analytics dependencies and I have created it with exactly this in mind. 
+
+By all means, you can go with the App Center - I'm using it on other project in my day job and it also works very well. I just wanted to give a Firebase Crashlytics a try. Besides I didn't want to create yet another account to use App Center ;-)
 
 # Building the code
 
