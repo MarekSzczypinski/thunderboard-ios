@@ -6,9 +6,6 @@
 //
 
 import UIKit
-//import AppCenter
-//import AppCenterAnalytics
-//import AppCenterCrashes
 import Firebase
 
 @UIApplicationMain
@@ -24,13 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
-        
-//        if let appCenterToken = ApplicationConfig.AppCenterToken {
-//            MSAppCenter.start(appCenterToken, withServices:[
-//                MSAnalytics.self,
-//                MSCrashes.self
-//            ])
-//        }
 
         let background = application.applicationState
         log.info("launchOptions=\(String(describing: launchOptions)) background=\(background.rawValue)")
