@@ -19,8 +19,4 @@ class ApplicationConfig {
         get { return "" }
     }
     
-//    AppCenter Token - (Character string provided by App Center for crash reporting)
-//    class var AppCenterToken: String? {
-//        get { return nil }
-//    }
 }
